@@ -1,28 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Fetch-a-Pup</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="style.css" rel="stylesheet" type="text/css">
+  <meta charset="utf-8" />
+  <title>Random Dog</title>
+  <style>
+    /* small styles to make the page readable */
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    img { max-width: 100%; height: auto; display: block; margin-top: 10px; }
+    #breed { margin-top: 8px; font-weight: bold; }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1><i class="fas fa-dog"></i>Fetch-a-Pup</h1>
-    <div class="breed-selector">
-      <label for="breed-select" class="visually-hidden">Select a dog breed:</label>
-      <select id="breed-select">
-        <option value="">-- Select a dog breed --</option>
-      </select>
-    </div>
-    <div id="gallery" class="gallery">
-      <!-- Dog images will appear here -->
-    </div>
+  <h1>Random Dog Image</h1>
+
+  <!-- Controls: random, or choose a breed -->
+  <div id="controls">
+    <button id="fetchBtn">Get Random Dog</button>
+
+    <!-- Dropdown will be populated with breeds from the API -->
+    <label for="breedSelect">Choose a breed:</label>
+    <select id="breedSelect">
+      <option value="">-- loading breeds --</option>
+    </select>
+    <button id="breedBtn">Get Image for Selected Breed</button>
   </div>
+
+  <!-- Where the image and breed will be shown -->
+  <div id="result">
+    <p id="breed">Breed: —</p>
+    <img id="dogImage" src="" alt="Random dog will appear here" />
+    <!-- Image loading indicator -->
+    <p id="loadingImage" style="display:none;">Loading image...</p>
+    <!-- Error area for friendly messages -->
+    <p id="error" style="color: #b00020;"></p>
+  </div>
+
+  <!-- Load external script (extracted for clarity) -->
   <script src="script.js"></script>
 </body>
 </html>
